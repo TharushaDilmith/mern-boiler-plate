@@ -4,12 +4,29 @@ import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import promisedMiddleware from "redux-promise";
+import ReduxThunk from "redux-thunk";
+import reducers from "./reducers";
+
+const createStoreWithMiddleware = applyMiddleware(
+  promisedMiddleware,
+  ReduxThunk
+)(createStore);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-
+  <Provider
+    store={createStoreWithMiddleware(
+      reducers,
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+    )}
+  >
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
