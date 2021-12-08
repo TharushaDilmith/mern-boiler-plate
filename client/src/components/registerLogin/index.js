@@ -14,7 +14,7 @@ export default function RegisterLogin() {
     <div className="container">
       <h2>Login</h2>
       <div className="row">
-        <div className="col 12" onSubmit={(e) => submitForm(e)}>
+        <div className="col s12" onSubmit={(e) => submitForm(e)}>
           <div className="row">
             <div className="input-field col s12">
               <input
@@ -54,11 +54,12 @@ export default function RegisterLogin() {
             </div>
           </div>
           <div className="row">
-            <div className="col s12">
+            <div className="col 12">
               <button
-                className="btn waves-effect waves-light"
+                className="btn waves-effect red lighten-2"
                 type="submit"
                 name="action"
+                onClick={(e) => submitForm(e)}
               >
                 Login
               </button>
