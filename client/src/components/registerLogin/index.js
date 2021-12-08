@@ -56,7 +56,7 @@ export default function RegisterLogin() {
           <div className="row">
             <div className="col 12">
               <button
-                className="btn waves-effect red lighten-2"
+                className="btn waves-effect red lighten-2" 
                 type="submit"
                 name="action"
                 onClick={(e) => submitForm(e)}
